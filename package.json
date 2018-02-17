@@ -1,5 +1,5 @@
 {
-  "name": "reversi",
+  "name": "AI-reversi",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git@github.com.sub:ariy-parallel/reversi.git"
   },
-  "author": "",
+  "author": "Hayato Kanie",
   "license": "ISC",
   "devDependencies": {
     "coffee-script": "^1.10.0",
