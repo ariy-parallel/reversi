@@ -23,6 +23,9 @@ gulp.task 'watch', ->
 # .coffeeのコンパイル
 gulp.task 'coffee', ->
   gulp.src([
+    'src/setting.coffee'
+    'src/turn.coffee'
+    'src/board.coffee'
     'src/index.coffee'
   ]).pipe coffee
     bare: true

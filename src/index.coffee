@@ -1,6 +1,10 @@
 window.onload = ->
-  $("#45, #54").addClass("disk").addClass("black")
-  $("#44, #55").addClass("disk").addClass("white")
+  window.turn = new Turn
+  window.board = new Board
+  window.board.draw()
 
   $(".cell").on "click", ->
-    # 置いた時の処理
+    [row, col] = $(this).attr("id").split("")
+    window.board.move(window.turn.this_player, row, col)
+    window.turn.change()
+    window.board.draw()
