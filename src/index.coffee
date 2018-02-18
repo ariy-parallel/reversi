@@ -4,6 +4,7 @@ window.onload = ->
 
   $(".cell").on "click", ->
     [row, col] = $(this).attr("id").split("")
-    if window.board.can_move(parseInt(row, 10), parseInt(col, 10))
+    [row, col] = [parseInt(row, 10), parseInt(col, 10)]
+    if window.board.can_move(row, col)
       window.board.move(row, col)
       window.board.draw()

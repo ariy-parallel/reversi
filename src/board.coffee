@@ -22,21 +22,34 @@ class Board
     for row, row_num in @cells
       for cell_val, col_num in row
         cell = $("##{row_num}#{col_num}")
-        unless cell_val is ""
+        unless cell_val is Setting.DISK.NONE
           cell.addClass("disk")
+          cell.removeClass(Setting.DISK.BLACK)
+          cell.removeClass(Setting.DISK.WHITE)
           cell.addClass(cell_val)
 
   move:(row, col) ->
-    @cells[row][col] = @turn.this_player
+    @reverse(row, col)
     @turn.change()
 
+  reverse:(row, col) ->
+    @cells[row][col] = @turn.this_player
+    for [y, x] in @reverse_disk(row, col)
+      @cells[y][x] = @turn.this_player
+
   can_move:(row, col) ->
+    return false unless @cells[row][col] is Setting.DISK.NONE
+    for [y, x] in Board.ADJACENT
+      return true if 0 < @reverse_disk_each_direction(row, col, y, x).length
+    false
+
+  reverse_disk:(row, col) ->
     reverse_disk = []
     for [y, x] in Board.ADJACENT
-      reverse_disk = reverse_disk.concat(@can_move_each_direction(row, col, y, x))
-    0 < reverse_disk.length
+      reverse_disk = reverse_disk.concat(@reverse_disk_each_direction(row, col, y, x))
+    reverse_disk
 
-  can_move_each_direction:(row, col, y, x) ->
+  reverse_disk_each_direction:(row, col, y, x) ->
     reverse_disk = []
     cheking_row = row
     cheking_col = col
