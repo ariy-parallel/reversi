@@ -1,5 +1,5 @@
 window.onload = ->
-  window.board = new Board(new Turn)
+  window.board = new Board
   window.board.draw()
 
   $(".cell").on "click", ->
