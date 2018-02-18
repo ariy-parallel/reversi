@@ -3,73 +3,75 @@
 <head>
   <title>AI-reversi</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
 </head>
 <body>
   <div class="board">
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
-    <div class="cell-container"><div class="cell"></div></div>
+    <div class="cell-container"><div class="cell" id="11"></div></div>
+    <div class="cell-container"><div class="cell" id="12"></div></div>
+    <div class="cell-container"><div class="cell" id="13"></div></div>
+    <div class="cell-container"><div class="cell" id="14"></div></div>
+    <div class="cell-container"><div class="cell" id="15"></div></div>
+    <div class="cell-container"><div class="cell" id="16"></div></div>
+    <div class="cell-container"><div class="cell" id="17"></div></div>
+    <div class="cell-container"><div class="cell" id="18"></div></div>
+    <div class="cell-container"><div class="cell" id="21"></div></div>
+    <div class="cell-container"><div class="cell" id="22"></div></div>
+    <div class="cell-container"><div class="cell" id="23"></div></div>
+    <div class="cell-container"><div class="cell" id="24"></div></div>
+    <div class="cell-container"><div class="cell" id="25"></div></div>
+    <div class="cell-container"><div class="cell" id="26"></div></div>
+    <div class="cell-container"><div class="cell" id="27"></div></div>
+    <div class="cell-container"><div class="cell" id="28"></div></div>
+    <div class="cell-container"><div class="cell" id="31"></div></div>
+    <div class="cell-container"><div class="cell" id="32"></div></div>
+    <div class="cell-container"><div class="cell" id="33"></div></div>
+    <div class="cell-container"><div class="cell" id="34"></div></div>
+    <div class="cell-container"><div class="cell" id="35"></div></div>
+    <div class="cell-container"><div class="cell" id="36"></div></div>
+    <div class="cell-container"><div class="cell" id="37"></div></div>
+    <div class="cell-container"><div class="cell" id="38"></div></div>
+    <div class="cell-container"><div class="cell" id="41"></div></div>
+    <div class="cell-container"><div class="cell" id="42"></div></div>
+    <div class="cell-container"><div class="cell" id="43"></div></div>
+    <div class="cell-container"><div class="cell" id="44"></div></div>
+    <div class="cell-container"><div class="cell" id="45"></div></div>
+    <div class="cell-container"><div class="cell" id="46"></div></div>
+    <div class="cell-container"><div class="cell" id="47"></div></div>
+    <div class="cell-container"><div class="cell" id="48"></div></div>
+    <div class="cell-container"><div class="cell" id="51"></div></div>
+    <div class="cell-container"><div class="cell" id="52"></div></div>
+    <div class="cell-container"><div class="cell" id="53"></div></div>
+    <div class="cell-container"><div class="cell" id="54"></div></div>
+    <div class="cell-container"><div class="cell" id="55"></div></div>
+    <div class="cell-container"><div class="cell" id="56"></div></div>
+    <div class="cell-container"><div class="cell" id="57"></div></div>
+    <div class="cell-container"><div class="cell" id="58"></div></div>
+    <div class="cell-container"><div class="cell" id="61"></div></div>
+    <div class="cell-container"><div class="cell" id="62"></div></div>
+    <div class="cell-container"><div class="cell" id="63"></div></div>
+    <div class="cell-container"><div class="cell" id="64"></div></div>
+    <div class="cell-container"><div class="cell" id="65"></div></div>
+    <div class="cell-container"><div class="cell" id="66"></div></div>
+    <div class="cell-container"><div class="cell" id="67"></div></div>
+    <div class="cell-container"><div class="cell" id="68"></div></div>
+    <div class="cell-container"><div class="cell" id="71"></div></div>
+    <div class="cell-container"><div class="cell" id="72"></div></div>
+    <div class="cell-container"><div class="cell" id="73"></div></div>
+    <div class="cell-container"><div class="cell" id="74"></div></div>
+    <div class="cell-container"><div class="cell" id="75"></div></div>
+    <div class="cell-container"><div class="cell" id="76"></div></div>
+    <div class="cell-container"><div class="cell" id="77"></div></div>
+    <div class="cell-container"><div class="cell" id="78"></div></div>
+    <div class="cell-container"><div class="cell" id="81"></div></div>
+    <div class="cell-container"><div class="cell" id="82"></div></div>
+    <div class="cell-container"><div class="cell" id="83"></div></div>
+    <div class="cell-container"><div class="cell" id="84"></div></div>
+    <div class="cell-container"><div class="cell" id="85"></div></div>
+    <div class="cell-container"><div class="cell" id="86"></div></div>
+    <div class="cell-container"><div class="cell" id="87"></div></div>
+    <div class="cell-container"><div class="cell" id="88"></div></div>
   </div>
 </body>
 </html>

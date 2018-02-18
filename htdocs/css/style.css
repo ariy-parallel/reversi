@@ -35,3 +35,23 @@
 .cell:hover {
     background-color: #6de66d;
 }
+
+.disk::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    border-radius: 50%;
+    width: 90%;
+    height: 90%;
+    box-shadow: 0 0 10px 1px;
+}
+
+.black::after {
+    background: radial-gradient(#333, #000);
+}
+
+.white::after {
+    background: radial-gradient(#fff, #ccc);
+}
