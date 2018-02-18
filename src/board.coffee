@@ -22,6 +22,10 @@ class Board
     for row, row_num in @cells
       for cell_val, col_num in row
         cell = $("##{row_num}#{col_num}")
+        if @can_move(row_num, col_num)
+          cell.addClass("movable")
+        else
+          cell.removeClass("movable")
         unless cell_val is Setting.DISK.NONE
           cell.addClass("disk")
           cell.removeClass(Setting.DISK.BLACK)
