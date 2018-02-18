@@ -2,21 +2,7 @@ class Board
   @ADJACENT = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]]
 
   constructor:(@turn) ->
-    @cells =
-      [
-        ["","","","","","","",""]
-        ["","","","","","","",""]
-        ["","","","","","","",""]
-        ["","","","","","","",""]
-        ["","","","","","","",""]
-        ["","","","","","","",""]
-        ["","","","","","","",""]
-        ["","","","","","","",""]
-      ]
-    @cells[3][3] = Setting.DISK.WHITE
-    @cells[3][4] = Setting.DISK.BLACK
-    @cells[4][3] = Setting.DISK.BLACK
-    @cells[4][4] = Setting.DISK.WHITE
+    @cells = Setting.BOARD.INITIAL
 
   draw: ->
     for row, row_num in @cells
