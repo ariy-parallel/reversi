@@ -1,8 +1,8 @@
 class AI2 extends AI
   # できるだけ少なく取る
   search: ->
-    y = 0
-    x = 0
+    y = -1
+    x = -1
     max_score = 64
     for key of @movable_cells()
       [row, col] = (parseInt(i, 10) for i in key.split(""))
