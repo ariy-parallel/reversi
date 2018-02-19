@@ -7,7 +7,6 @@ class Board
     @next_player = Setting.DISK.WHITE
 
   change: ->
-    console.log "change"
     [@this_player, @next_player] = [@next_player, @this_player]
 
   draw: ->
