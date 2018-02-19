@@ -1,6 +1,4 @@
-class AI1
-  constructor:(@board) ->
-
+class AI1 extends AI
   search: ->
     movable_cells = {}
     for row, row_num in Setting.BOARD.INITIAL
