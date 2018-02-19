@@ -28,6 +28,7 @@ gulp.task 'coffee', ->
     'src/board.coffee'
     'src/AI/AI.coffee'
     'src/AI/AI1.coffee'
+    'src/AI/AI2.coffee'
     'src/index.coffee'
   ]).pipe coffee
     bare: true

@@ -1,4 +1,5 @@
 class AI1 extends AI
+  # できるだけ多く取る
   search: ->
     y = 0
     x = 0
