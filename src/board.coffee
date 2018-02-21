@@ -23,6 +23,13 @@ class Board
           cell.removeClass(Setting.DISK.WHITE)
           cell.addClass(cell_val)
 
+  movable_cells: ->
+    movable_cells = {}
+    for row, row_num in @cells
+      for _cell_val, col_num in row when @can_move(row_num, col_num)
+        movable_cells["#{row_num}#{col_num}"] = ""
+    movable_cells
+
   move:(row, col) ->
     @flip(row, col)
     @change()
