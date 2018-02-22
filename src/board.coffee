@@ -10,6 +10,8 @@ class Board
     [@this_player, @next_player] = [@next_player, @this_player]
 
   draw: ->
+    black_disk = 0
+    white_disk = 0
     for row, row_num in @cells
       for cell_val, col_num in row
         cell = $("##{row_num}#{col_num}")
@@ -22,6 +24,12 @@ class Board
           cell.removeClass(Setting.DISK.BLACK)
           cell.removeClass(Setting.DISK.WHITE)
           cell.addClass(cell_val)
+          if cell_val is Setting.DISK.BLACK
+            black_disk += 1
+          else if cell_val is Setting.DISK.WHITE
+            white_disk += 1
+    $(".mini_disk.black").text(black_disk)
+    $(".mini_disk.white").text(white_disk)
 
   movable_cells: ->
     movable_cells = {}
