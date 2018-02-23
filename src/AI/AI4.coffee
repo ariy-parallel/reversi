@@ -12,8 +12,8 @@ class AI4 extends AI
       temp_min_score = 64
       for key2 of next_board.movable_cells()
         [row2, col2] = (parseInt(i, 10) for i in key2.split(""))
-        next2_board = jQuery.extend(true, {}, @board)
-        next2_board.flip(row2, col2)
+        next2_board = jQuery.extend(true, {}, next_board)
+        next2_board.move(row2, col2)
         i = next2_board.movable_cells_length()
         next2_board.change()
         you = next2_board.movable_cells_length()
