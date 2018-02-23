@@ -3,7 +3,7 @@ window.onload = ->
   window.board.draw()
 
   $(".cell").on "click", ->
-    [row, col] = (parseInt(i, 10) for i in $(this).attr("id").split(""))
+    [row, col] = $(this).attr("id").row_col()
     if window.board.can_move(row, col)
       window.board.move(row, col)
       if window.board.can_move_anywhere()

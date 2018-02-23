@@ -23,6 +23,7 @@ gulp.task 'watch', ->
 # .coffeeのコンパイル
 gulp.task 'coffee', ->
   gulp.src([
+    'src/extension/string.coffee'
     'src/setting.coffee'
     'src/turn.coffee'
     'src/board.coffee'

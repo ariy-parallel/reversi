@@ -5,7 +5,7 @@ class AI3 extends AI
     max_score = -64
 
     for key of @board.movable_cells()
-      [row, col] = (parseInt(i, 10) for i in key.split(""))
+      [row, col] = key.row_col()
       next_board = @board.clone()
       next_board.flip(row, col)
       score = @more_move_count(next_board)
@@ -14,7 +14,7 @@ class AI3 extends AI
         max_score = score
         [result_row, result_col] = [row, col]
 
-    [parseInt(result_row, 10), parseInt(result_col, 10)]
+    [result_row, result_col]
 
   more_move_count:(board) ->
     i = board.movable_cells_length()
