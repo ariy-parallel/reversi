@@ -6,6 +6,9 @@ class Board
     @this_player = Setting.DISK.BLACK
     @next_player = Setting.DISK.WHITE
 
+  clone: ->
+    jQuery.extend(true, {}, @)
+
   change: ->
     [@this_player, @next_player] = [@next_player, @this_player]
 

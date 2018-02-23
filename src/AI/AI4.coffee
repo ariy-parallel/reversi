@@ -1,8 +1,7 @@
 class AI4 extends AI
   # ミニマックス法
   search: ->
-    y = -1
-    x = -1
+    [result_row, result_col] = [-1, -1]
     max_score = -64
 
     for key of @board.movable_cells()
@@ -25,7 +24,6 @@ class AI4 extends AI
 
       if max_score < temp_min_score
         max_score = temp_min_score
-        y = row
-        x = col
+        [result_row, result_col] = [row, col]
 
-    [parseInt(y, 10), parseInt(x, 10)]
+    [parseInt(result_row, 10), parseInt(result_col, 10)]
