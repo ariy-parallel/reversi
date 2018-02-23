@@ -38,8 +38,11 @@ class Board
         movable_cells["#{row_num}#{col_num}"] = ""
     movable_cells
 
+  movable_cells_length: ->
+    Object.keys(@movable_cells()).length
+
   can_move_anywhere: ->
-    0 < Object.keys(@movable_cells()).length
+    0 < @movable_cells_length()
 
   move:(row, col) ->
     @flip(row, col)
