@@ -42,7 +42,7 @@ class Board
       $(".result").text("YOU LOSE...")
       $(".result").addClass("lose")
     else
-      $(".result").text("DROW")
+      $(".result").text("DRAW")
 
   movable_cells: ->
     movable_cells = {}
