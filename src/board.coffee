@@ -35,10 +35,10 @@ class Board
     $(".mini_disk.white").text(white_disk)
 
   draw_result: ->
-    if $(".mini_disk.white").text() < $(".mini_disk.black").text()
+    if $(".mini_disk.AI").text() < $(".mini_disk.you").text()
       $(".result").text("YOU WIN!!!")
       $(".result").addClass("win")
-    else if $(".mini_disk.black").text() < $(".mini_disk.white").text()
+    else if $(".mini_disk.you").text() < $(".mini_disk.AI").text()
       $(".result").text("YOU LOSE...")
       $(".result").addClass("lose")
     else

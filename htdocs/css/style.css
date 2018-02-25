@@ -3,7 +3,52 @@
 }
 
 body {
-    font-family: "GEORGIA";
+    font-family: Georgia;
+}
+
+.modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #1119;
+    z-index: 6000000;
+}
+
+.big_disks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+}
+
+.big_disk {
+    position: relative;
+    width: 10%;
+}
+
+.big_disk::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 0 5px 1px;
+}
+
+.big_disk:hover::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background: #6de66d;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 60px;
+    height: 60px;
 }
 
 .board {
@@ -37,7 +82,7 @@ body {
 }
 
 .cell:hover {
-    background-color: #6de66d;
+    background: #6de66d;
 }
 
 .movable::before {

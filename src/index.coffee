@@ -2,6 +2,18 @@ window.onload = ->
   window.board = new Board
   window.board.draw()
 
+  $(".big_disk.black").on "click", ->
+    $(".mini_disk.you").addClass("black")
+    $(".mini_disk.AI").addClass("white")
+    $(".modal").hide()
+
+  $(".big_disk.white").on "click", ->
+    $(".mini_disk.you").addClass("white")
+    $(".mini_disk.AI").addClass("black")
+    $(".modal").hide()
+    AI_move()
+    window.board.draw()
+
   $(".cell").on "click", ->
     [row, col] = $(this).attr("id").row_col()
     unless window.board.can_move(row, col)
