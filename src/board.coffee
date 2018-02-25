@@ -34,6 +34,16 @@ class Board
     $(".mini_disk.black").text(black_disk)
     $(".mini_disk.white").text(white_disk)
 
+  draw_result: ->
+    if $(".mini_disk.white").text() < $(".mini_disk.black").text()
+      $(".result").text("YOU WIN!!!")
+      $(".result").addClass("win")
+    else if $(".mini_disk.black").text() < $(".mini_disk.white").text()
+      $(".result").text("YOU LOSE...")
+      $(".result").addClass("lose")
+    else
+      $(".result").text("DROW")
+
   movable_cells: ->
     movable_cells = {}
     for row, row_num in @cells

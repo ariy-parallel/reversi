@@ -2,6 +2,10 @@
    box-sizing: border-box;
 }
 
+body {
+    font-family: "GEORGIA";
+}
+
 .board {
     background: radial-gradient(#429e42, #214e21);
     border: solid 3px;
@@ -68,17 +72,26 @@
     background: radial-gradient(#fff, #ccc);
 }
 
-.clearfix:after {
-    content:"";
-    display:block;
-    clear:both;
+.info {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.player {
+    display: inline-block;
+    position: relative;
+    width: 30%;
+}
+
+.clear-fix:after {
+    content: "";
+    display: block;
+    clear: both;
 }
 
 .mini_disk {
-    position: relative;
-    margin-top: 20px;
-    margin-left: 40px;
-    width: 30px;
+    position: absolute;
+    left: 60%;
 }
 
 .mini_disk::after {
@@ -92,4 +105,22 @@
     width: 35px;
     height: 35px;
     box-shadow: 0 0 5px 1px;
+}
+
+.result {
+    display: inline-block;
+    width: 37%;
+    text-align: right;
+}
+
+.win {
+    background: -webkit-linear-gradient(top, #d00 0%, #500 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.lose {
+    background: -webkit-linear-gradient(top, #00d 0%, #005 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
 }

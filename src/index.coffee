@@ -4,13 +4,17 @@ window.onload = ->
 
   $(".cell").on "click", ->
     [row, col] = $(this).attr("id").row_col()
-    if window.board.can_move(row, col)
-      window.board.move(row, col)
-      if window.board.can_move_anywhere()
-        AI_move()
-      else
-        window.board.change()
-      window.board.draw()
+    unless window.board.can_move(row, col)
+      return
+
+    window.board.move(row, col)
+    if window.board.can_move_anywhere()
+      AI_move()
+    else
+      window.board.change()
+    window.board.draw()
+    unless window.board.can_move_anywhere()
+      window.board.draw_result()
 
   AI_move = ->
     ai = new AI5(window.board)
