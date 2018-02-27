@@ -5,6 +5,9 @@ class Board
     @cells = Setting.BOARD.INITIAL
     @this_player = Setting.DISK.BLACK
     @next_player = Setting.DISK.WHITE
+    @blank_cells = 60
+    @AI = "-"
+    @you = "-"
 
   clone: ->
     jQuery.extend(true, {}, @)
@@ -12,9 +15,23 @@ class Board
   change: ->
     [@this_player, @next_player] = [@next_player, @this_player]
 
+  count_you: ->
+    disks = 0
+    for row, row_num in @cells
+      for cell_val, col_num in row
+        if cell_val is @you
+          disks += 1
+    disks
+
+  count_AI: ->
+    disks = 0
+    for row, row_num in @cells
+      for cell_val, col_num in row
+        if cell_val is @AI
+          disks += 1
+    disks
+
   draw: ->
-    black_disk = 0
-    white_disk = 0
     for row, row_num in @cells
       for cell_val, col_num in row
         cell = $("##{row_num}#{col_num}")
@@ -27,12 +44,8 @@ class Board
           cell.removeClass(Setting.DISK.BLACK)
           cell.removeClass(Setting.DISK.WHITE)
           cell.addClass(cell_val)
-          if cell_val is Setting.DISK.BLACK
-            black_disk += 1
-          else if cell_val is Setting.DISK.WHITE
-            white_disk += 1
-    $(".mini_disk.black").text(black_disk)
-    $(".mini_disk.white").text(white_disk)
+    $(".mini_disk.you").text(@count_you())
+    $(".mini_disk.AI").text(@count_AI())
 
   draw_result: ->
     if $(".mini_disk.AI").text() < $(".mini_disk.you").text()
@@ -58,6 +71,7 @@ class Board
     0 < @movable_cells_length()
 
   move:(row, col) ->
+    @blank_cells -= 1
     @flip(row, col)
     @change()
 

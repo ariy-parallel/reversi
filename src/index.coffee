@@ -3,11 +3,16 @@ window.onload = ->
   window.board.draw()
 
   $(".big_disk.black").on "click", ->
+    window.board.you = Setting.DISK.BLACK
+    window.board.AI = Setting.DISK.WHITE
     $(".mini_disk.you").addClass("black")
     $(".mini_disk.AI").addClass("white")
     $(".modal").hide()
+    window.board.draw()
 
   $(".big_disk.white").on "click", ->
+    window.board.you = Setting.DISK.WHITE
+    window.board.AI = Setting.DISK.BLACK
     $(".mini_disk.you").addClass("white")
     $(".mini_disk.AI").addClass("black")
     $(".modal").hide()

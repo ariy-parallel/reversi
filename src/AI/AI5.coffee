@@ -7,6 +7,9 @@ class AI5 extends AI4
   # ミニマックス法
   # 隅に傾斜付き
   search: ->
+    @search_not_final()
+
+  search_not_final: ->
     [result_row, result_col] = [-1, -1]
     max_score = -64
 
