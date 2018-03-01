@@ -1,6 +1,6 @@
 class AI6 extends AI5
   search: ->
-    if 4 < @board.blank_cells
+    if 8 < @board.blank_cells
       @search_not_final()
     else
       @search_final()
@@ -25,10 +25,10 @@ class AI6 extends AI5
 
   search_best_of_AI:(board) ->
     movable_cells = board.movable_cells()
-    unless board.can_move_anywhere()
+    if Object.keys(movable_cells).length is 0
       board.change()
       unless board.can_move_anywhere()
-        return board.count_AI() - board.count_you()
+        return @count_diff_with_you()
       else
         return @search_best_of_you(board)
 
@@ -45,10 +45,10 @@ class AI6 extends AI5
 
   search_best_of_you:(board) ->
     movable_cells = board.movable_cells()
-    unless board.can_move_anywhere()
+    if Object.keys(movable_cells).length is 0
       board.change()
       unless board.can_move_anywhere()
-        return board.count_AI() - board.count_you()
+        return @count_diff_with_you()
       else
         return @search_best_of_AI(board)
 
@@ -63,3 +63,12 @@ class AI6 extends AI5
         min_score = score
     min_score
 
+  count_diff_with_you: ->
+    disks = 0;
+    for row, row_num in @board.cells
+      for cell_val, col_num in row
+        if cell_val is @board.AI
+           disks += 1;
+         else if cell_val is @board.you
+          disks -= 1;
+    disks;
