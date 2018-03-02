@@ -16,7 +16,7 @@ class AI6 extends AI5
       # 自分打つ
       next_board = @board.clone()
       next_board.move(row, col)
-      temp_min_score = @search_best_of_you(next_board, deep, max_score)
+      temp_min_score = @search_final_best_of_you(next_board, deep, max_score)
 
       if max_score < temp_min_score
         max_score = temp_min_score
@@ -25,7 +25,7 @@ class AI6 extends AI5
     [result_row, result_col]
 
 
-  search_best_of_AI:(board, deep, min_score) ->
+  search_final_best_of_AI:(board, deep, min_score) ->
     return @count_diff_with_you() if 4 <= deep
     movable_cells = board.movable_cells()
     max_score = -64
@@ -34,19 +34,19 @@ class AI6 extends AI5
       unless board.can_move_anywhere()
         return @count_diff_with_you()
       else
-        return @search_best_of_you(board, deep + 1, max_score)
+        return @search_final_best_of_you(board, deep + 1, max_score)
     for key of movable_cells
       [row, col] = key.row_col()
       # 自分打つ
       next_board = board.clone()
       next_board.move(row, col)
-      score = @search_best_of_you(next_board, deep + 1, max_score)
+      score = @search_final_best_of_you(next_board, deep + 1, max_score)
       return score if score < min_score
       if max_score < score
         max_score = score
     max_score
 
-  search_best_of_you:(board, deep, max_score) ->
+  search_final_best_of_you:(board, deep, max_score) ->
     return @count_diff_with_you() if 4 <= deep
     movable_cells = board.movable_cells()
     min_score = 64
@@ -55,14 +55,14 @@ class AI6 extends AI5
       unless board.can_move_anywhere()
         return @count_diff_with_you()
       else
-        return @search_best_of_AI(board, deep + 1, min_score)
+        return @search_final_best_of_AI(board, deep + 1, min_score)
 
     for key of movable_cells
       [row, col] = key.row_col()
       # 相手打つ
       next_board = board.clone()
       next_board.move(row, col)
-      score = @search_best_of_AI(next_board, deep + 1, min_score)
+      score = @search_final_best_of_AI(next_board, deep + 1, min_score)
       return score if max_score < score
       if score < min_score
         min_score = score
