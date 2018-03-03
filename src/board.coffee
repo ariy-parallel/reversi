@@ -55,7 +55,7 @@ class Board
     else
       $(".result").text("DRAW")
     $(".choose_disk").hide()
-    $(".modal").show()
+    $(".modal").fadeIn()
     $(".result").addClass("show")
 
   movable_cells: ->

@@ -7,7 +7,7 @@ window.onload = ->
     window.board.AI = Setting.DISK.WHITE
     $(".mini_disk.you").addClass("black")
     $(".mini_disk.AI").addClass("white")
-    $(".modal").hide()
+    $(".modal").fadeOut()
     window.board.draw()
 
   $(".big_disk.white").on "click", ->
@@ -15,7 +15,7 @@ window.onload = ->
     window.board.AI = Setting.DISK.BLACK
     $(".mini_disk.you").addClass("white")
     $(".mini_disk.AI").addClass("black")
-    $(".modal").hide()
+    $(".modal").fadeOut()
     AI_move()
     window.board.draw()
 
