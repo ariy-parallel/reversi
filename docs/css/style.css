@@ -175,17 +175,9 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 3rem;
-    color: #dddd;
+    color: #fff;
 }
 
 .result.show {
     display: flex;
-}
-
-.win {
-    text-shadow: 1px 1px 2px #fff, 0 0 1rem #f33, 0 0 0.2rem #f33;
-}
-
-.lose {
-    text-shadow: 1px 1px 2px #fff, 0 0 1rem #00f, 0 0 0.2rem #00f;
 }
