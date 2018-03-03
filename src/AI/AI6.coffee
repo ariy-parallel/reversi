@@ -11,8 +11,7 @@ class AI6 extends AI5
     [result_row, result_col] = [-1, -1]
     max_score = -64
     deep = 0
-    for key of @board.movable_cells()
-      [row, col] = key.row_col()
+    for i, [row, col] of @board.movable_cells()
       # 自分打つ
       next_board = @board.clone()
       next_board.move(row, col)
@@ -25,13 +24,13 @@ class AI6 extends AI5
     [result_row, result_col]
 
   search_final_best_of_AI:(board, deep, min_score) ->
-    return @count_diff_with_you() if 4 <= deep
+    return @count_diff_with_you(board) if 4 <= deep
     movable_cells = board.movable_cells()
     max_score = -64
     if Object.keys(movable_cells).length is 0
       board.change()
       unless board.can_move_anywhere()
-        return @count_diff_with_you()
+        return @count_diff_with_you(board)
       else
         return @search_final_best_of_you(board, deep + 1, max_score)
     for i, [row, col] of movable_cells
@@ -45,13 +44,13 @@ class AI6 extends AI5
     max_score
 
   search_final_best_of_you:(board, deep, max_score) ->
-    return @count_diff_with_you() if 4 <= deep
+    return @count_diff_with_you(board) if 4 <= deep
     movable_cells = board.movable_cells()
     min_score = 64
     if Object.keys(movable_cells).length is 0
       board.change()
       unless board.can_move_anywhere()
-        return @count_diff_with_you()
+        return @count_diff_with_you(board)
       else
         return @search_final_best_of_AI(board, deep + 1, min_score)
 
