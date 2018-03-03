@@ -34,8 +34,7 @@ class AI6 extends AI5
         return @count_diff_with_you()
       else
         return @search_final_best_of_you(board, deep + 1, max_score)
-    for key of movable_cells
-      [row, col] = key.row_col()
+    for i, [row, col] of movable_cells
       # 自分打つ
       next_board = board.clone()
       next_board.move(row, col)
@@ -56,8 +55,7 @@ class AI6 extends AI5
       else
         return @search_final_best_of_AI(board, deep + 1, min_score)
 
-    for key of movable_cells
-      [row, col] = key.row_col()
+    for i, [row, col] of movable_cells
       # 相手打つ
       next_board = board.clone()
       next_board.move(row, col)
@@ -67,12 +65,12 @@ class AI6 extends AI5
         min_score = score
     min_score
 
-  count_diff_with_you: ->
-    disks = 0;
-    for row, row_num in @board.cells
+  count_diff_with_you:(board) ->
+    disks = 0
+    for row, row_num in board.cells
       for cell_val, col_num in row
-        if cell_val is @board.AI
-           disks += 1;
-         else if cell_val is @board.you
-          disks -= 1;
-    disks;
+        if cell_val is board.AI
+           disks += 1
+         else if cell_val is board.you
+          disks -= 1
+    disks

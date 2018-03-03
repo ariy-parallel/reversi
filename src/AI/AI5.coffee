@@ -8,13 +8,12 @@ class AI5 extends AI4
     [result_row, result_col] = [-1, -1]
     max_score = -64
     deep = 0
-    for key of @board.movable_cells()
-      [row, col] = key.row_col()
+    for i, [row, col] of @board.movable_cells()
       # 自分打つ
       next_board = @board.clone()
       next_board.move(row, col)
       temp_min_score = @search_not_final_best_of_you(next_board, deep, max_score)
-      temp_min_score += Setting.BOARD.ADDRESS[key]
+      temp_min_score += Setting.BOARD.ADDRESS["#{row}#{col}"]
       if max_score < temp_min_score
         max_score = temp_min_score
         [result_row, result_col] = [row, col]
@@ -31,8 +30,7 @@ class AI5 extends AI4
         return @AI_movable_cells_length(board)
       else
         return @search_not_final_best_of_you(board, deep + 1, max_score)
-    for key of movable_cells
-      [row, col] = key.row_col()
+    for i, [row, col] of movable_cells
       # 自分打つ
       next_board = board.clone()
       next_board.move(row, col)
@@ -53,8 +51,7 @@ class AI5 extends AI4
       else
         return @search_not_final_best_of_AI(board, deep + 1, min_score)
 
-    for key of movable_cells
-      [row, col] = key.row_col()
+    for i, [row, col] of movable_cells
       # 相手打つ
       next_board = board.clone()
       next_board.move(row, col)
@@ -65,5 +62,4 @@ class AI5 extends AI4
     min_score
 
   AI_movable_cells_length:(board) ->
-    console.log board.movable_cells_length()
     board.movable_cells_length()

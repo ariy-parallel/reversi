@@ -61,14 +61,14 @@ class Board
     $(".result").addClass("show")
 
   movable_cells: ->
-    movable_cells = {}
+    movable_cells = []
     for row, row_num in @cells
       for _cell_val, col_num in row when @can_move(row_num, col_num)
-        movable_cells["#{row_num}#{col_num}"] = ""
+        movable_cells.push([row_num, col_num])
     movable_cells
 
   movable_cells_length: ->
-    Object.keys(@movable_cells()).length
+    @movable_cells().length
 
   can_move_anywhere: ->
     0 < @movable_cells_length()

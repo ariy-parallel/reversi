@@ -4,8 +4,7 @@ class AI4 extends AI3
     [result_row, result_col] = [-1, -1]
     max_score = -64
 
-    for key of @board.movable_cells()
-      [row, col] = key.row_col()
+    for i, [row, col] of @board.movable_cells()
       # 自分打つ
       next_board = @board.clone()
       next_board.move(row, col)
@@ -20,8 +19,7 @@ class AI4 extends AI3
 
   min_score:(board) ->
     temp_min_score = 64
-    for key2 of board.movable_cells()
-      [row2, col2] = key2.row_col()
+    for i, [row2, col2] of board.movable_cells()
       next2_board = board.clone()
       next2_board.move(row2, col2)
 

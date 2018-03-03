@@ -4,8 +4,7 @@ class AI3 extends AI
     [result_row, result_col] = [-1, -1]
     max_score = -64
 
-    for key of @board.movable_cells()
-      [row, col] = key.row_col()
+    for i, [row, col] of @board.movable_cells()
       next_board = @board.clone()
       next_board.flip(row, col)
       score = @more_move_count(next_board)
