@@ -24,7 +24,7 @@ class AI5 extends AI4
     return @AI_movable_cells_length(board) if 1 <= deep
     movable_cells = board.movable_cells()
     max_score = -64
-    if Object.keys(movable_cells).length is 0
+    if movable_cells.length is 0
       board.change()
       unless board.can_move_anywhere()
         return @AI_movable_cells_length(board)
@@ -44,7 +44,7 @@ class AI5 extends AI4
     return @AI_movable_cells_length(board) if 1 <= deep
     movable_cells = board.movable_cells()
     min_score = 64
-    if Object.keys(movable_cells).length is 0
+    if movable_cells.length is 0
       board.change()
       unless board.can_move_anywhere()
         return @AI_movable_cells_length(board)

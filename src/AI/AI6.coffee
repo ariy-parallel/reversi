@@ -27,7 +27,7 @@ class AI6 extends AI5
     return @count_diff_with_you(board) if 4 <= deep
     movable_cells = board.movable_cells()
     max_score = -64
-    if Object.keys(movable_cells).length is 0
+    if movable_cells.length is 0
       board.change()
       unless board.can_move_anywhere()
         return @count_diff_with_you(board)
@@ -47,7 +47,7 @@ class AI6 extends AI5
     return @count_diff_with_you(board) if 4 <= deep
     movable_cells = board.movable_cells()
     min_score = 64
-    if Object.keys(movable_cells).length is 0
+    if movable_cells.length is 0
       board.change()
       unless board.can_move_anywhere()
         return @count_diff_with_you(board)
