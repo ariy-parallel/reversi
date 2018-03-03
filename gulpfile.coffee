@@ -12,7 +12,7 @@ gulp.task 'default', [
 
 # webサーバーの起動
 gulp.task 'webserver', ->
-  gulp.src 'htdocs'
+  gulp.src 'docs'
     .pipe webserver
       livereload: true
 
@@ -39,4 +39,4 @@ gulp.task 'coffee', ->
     bare: true
   .pipe concat('index.js')
   .pipe uglify()
-  .pipe gulp.dest 'htdocs/js/'
+  .pipe gulp.dest 'docs/js/'
