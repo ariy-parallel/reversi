@@ -24,7 +24,6 @@ class AI6 extends AI5
 
     [result_row, result_col]
 
-
   search_final_best_of_AI:(board, deep, min_score) ->
     return @count_diff_with_you() if 4 <= deep
     movable_cells = board.movable_cells()
