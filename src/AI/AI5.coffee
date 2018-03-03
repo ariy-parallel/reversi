@@ -22,7 +22,7 @@ class AI5 extends AI4
     [result_row, result_col]
 
   search_not_final_best_of_AI:(board, deep, min_score) ->
-    return @AI_movable_cells_length(board) if 2 <= deep
+    return @AI_movable_cells_length(board) if 1 <= deep
     movable_cells = board.movable_cells()
     max_score = -64
     if Object.keys(movable_cells).length is 0
@@ -43,7 +43,7 @@ class AI5 extends AI4
     max_score
 
   search_not_final_best_of_you:(board, deep, max_score) ->
-    return @AI_movable_cells_length(board) if 2 <= deep
+    return @AI_movable_cells_length(board) if 1 <= deep
     movable_cells = board.movable_cells()
     min_score = 64
     if Object.keys(movable_cells).length is 0
@@ -65,5 +65,5 @@ class AI5 extends AI4
     min_score
 
   AI_movable_cells_length:(board) ->
-    board.this_player = board.AI
+    console.log board.movable_cells_length()
     board.movable_cells_length()
