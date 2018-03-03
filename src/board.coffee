@@ -48,9 +48,9 @@ class Board
     $(".mini_disk.AI").text(@count_AI())
 
   draw_result: ->
-    if $(".mini_disk.AI").text() < $(".mini_disk.you").text()
+    if $(".mini_disk.AI").text().to_i() < $(".mini_disk.you").text().to_i()
       $(".result").text("YOU WIN!!!")
-    else if $(".mini_disk.you").text() < $(".mini_disk.AI").text()
+    else if $(".mini_disk.you").text().to_i() < $(".mini_disk.AI").text().to_i()
       $(".result").text("YOU LOSE...")
     else
       $(".result").text("DRAW")
