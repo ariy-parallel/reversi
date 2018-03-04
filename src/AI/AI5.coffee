@@ -64,4 +64,7 @@ class AI5 extends AI4
     min_score
 
   AI_movable_cells_length:(board) ->
-    board.movable_cells_length()
+    ai = board.movable_cells_length()
+    board.change()
+    you = board.movable_cells_length()
+    ai - you
