@@ -35,14 +35,17 @@ class AI5 extends AI4
       next_board = board.clone()
       next_board.move(row, col)
       score = @search_not_final_best_of_you(next_board, depth + 1, max_score)
-      score += Setting.BOARD.SCORE[row][col]
+      # score += Setting.BOARD.SCORE[row][col]
       return score if score < min_score
       if max_score < score
         max_score = score
     max_score
 
   search_not_final_best_of_you:(board, depth, max_score) ->
-    return @AI_movable_cells_length(board) if @not_final_depth_limit <= depth
+    if @not_final_depth_limit <= depth
+      board.change()
+      return @AI_movable_cells_length(board)
+
     movable_cells = board.movable_cells()
     min_score = 64
     if movable_cells.length is 0
