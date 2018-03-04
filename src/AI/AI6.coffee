@@ -1,6 +1,9 @@
 class AI6 extends AI5
+  constructor:(@board) ->
+    @not_final_depth_limit = 1
+    @final_depth_limit = 1
+
   # アルファベータ法
-  # 終盤読み切りたかったけど処理速度が無理だから5手先まで
   search: ->
     if 16 < @board.blank_cells
       @search_not_final()
@@ -8,23 +11,20 @@ class AI6 extends AI5
       @search_final()
 
   search_final: ->
-    [result_row, result_col] = [-1, -1]
-    max_score = -64
-    depth = 0
+    [max_score, result_row, result_col] = [-64, -1, -1]
     for i, [row, col] of @board.movable_cells()
       # 自分打つ
       next_board = @board.clone()
       next_board.move(row, col)
-      temp_min_score = @search_final_best_of_you(next_board, depth, max_score)
+      temp_min_score = @search_final_best_of_you(next_board, 0, max_score)
 
       if max_score < temp_min_score
-        max_score = temp_min_score
-        [result_row, result_col] = [row, col]
+        [max_score, result_row, result_col] = [temp_min_score, row, col]
 
     [result_row, result_col]
 
   search_final_best_of_AI:(board, depth, min_score) ->
-    return @count_diff_with_you(board) if 4 <= depth
+    return @count_diff_with_you(board) if @final_depth_limit <= depth
     movable_cells = board.movable_cells()
     max_score = -64
     if movable_cells.length is 0
@@ -44,7 +44,7 @@ class AI6 extends AI5
     max_score
 
   search_final_best_of_you:(board, depth, max_score) ->
-    return @count_diff_with_you(board) if 4 <= depth
+    return @count_diff_with_you(board) if @final_depth_limit <= depth
     movable_cells = board.movable_cells()
     min_score = 64
     if movable_cells.length is 0
