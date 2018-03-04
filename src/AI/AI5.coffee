@@ -1,5 +1,5 @@
 class AI5 extends AI4
-  constructor: ->
+  constructor:(@board) ->
     @not_final_depth_limit = 1
 
   # ミニマックス法
