@@ -34,7 +34,7 @@ window.onload = ->
       window.board.draw_result()
 
   AI_move = ->
-    ai = new AI6(window.board)
+    ai = new AI7(window.board)
     [row2, col2] = ai.search()
     window.board.move(row2, col2)
     unless window.board.can_move_anywhere()

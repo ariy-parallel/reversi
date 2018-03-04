@@ -48,7 +48,7 @@ class AI5 extends AI4
     if movable_cells.length is 0
       board.change()
       unless board.can_move_anywhere()
-        return @AI_movable_cells_length(board)
+        return 64
       else
         return @search_not_final_best_of_AI(board, depth + 1, min_score)
 
