@@ -1,12 +1,11 @@
 class AI5 extends AI4
+  constructor: ->
+    @not_final_depth_limit = 1
+
   # ミニマックス法
   # 隅に傾斜付き
   search: ->
     @search_not_final()
-
-  # プレイヤーの入れ替えロジックを入れてないので奇数のみ可
-  not_final_depth_limit: ->
-    1
 
   search_not_final: ->
     [max_score, result_row, result_col] = [-64, -1, -1]
@@ -22,7 +21,7 @@ class AI5 extends AI4
     [result_row, result_col]
 
   search_not_final_best_of_AI:(board, depth, min_score) ->
-    return @AI_movable_cells_length(board) if @not_final_depth_limit() <= depth
+    return @AI_movable_cells_length(board) if @not_final_depth_limit <= depth
     movable_cells = board.movable_cells()
     max_score = -64
     if movable_cells.length is 0
@@ -43,7 +42,7 @@ class AI5 extends AI4
     max_score
 
   search_not_final_best_of_you:(board, depth, max_score) ->
-    return @AI_movable_cells_length(board) if @not_final_depth_limit() <= depth
+    return @AI_movable_cells_length(board) if @not_final_depth_limit <= depth
     movable_cells = board.movable_cells()
     min_score = 64
     if movable_cells.length is 0
