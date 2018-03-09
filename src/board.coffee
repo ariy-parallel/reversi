@@ -69,7 +69,10 @@ class Board
     @movable_cells().length
 
   can_move_anywhere: ->
-    0 < @movable_cells_length()
+    for row, row_num in @cells
+      for _cell_val, col_num in row
+        return true if @can_move(row_num, col_num)
+    false
 
   move:(row, col) ->
     @blank_cells -= 1
