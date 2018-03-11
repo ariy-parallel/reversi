@@ -24,13 +24,13 @@ class AI6 extends AI5
     [result_row, result_col]
 
   search_final_best_of_AI:(board, depth, min_score) ->
-    return @count_diff_with_you(board) if @final_depth_limit <= depth
+    return @evaluate_final(board) if @final_depth_limit <= depth
     movable_cells = board.movable_cells()
     max_score = -64
     if movable_cells.length is 0
       board.change()
       unless board.can_move_anywhere()
-        return @count_diff_with_you(board)
+        return @evaluate_final(board)
       else
         return @search_final_best_of_you(board, depth + 1, max_score)
     for i, [row, col] of movable_cells
@@ -44,13 +44,13 @@ class AI6 extends AI5
     max_score
 
   search_final_best_of_you:(board, depth, max_score) ->
-    return @count_diff_with_you(board) if @final_depth_limit <= depth
+    return @evaluate_final(board) if @final_depth_limit <= depth
     movable_cells = board.movable_cells()
     min_score = 64
     if movable_cells.length is 0
       board.change()
       unless board.can_move_anywhere()
-        return @count_diff_with_you(board)
+        return @evaluate_final(board)
       else
         return @search_final_best_of_AI(board, depth + 1, min_score)
 
@@ -64,7 +64,7 @@ class AI6 extends AI5
         min_score = score
     min_score
 
-  count_diff_with_you:(board) ->
+  evaluate_final:(board) ->
     disks = 0
     for row, row_num in board.cells
       for cell_val, col_num in row
