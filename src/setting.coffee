@@ -10,7 +10,7 @@ class Setting
       B: 0
       C: -5
       X: -10
-      CORNER: 20
+      CORNER: 30
       NONE: 0
 
   @BOARD:
