@@ -49,14 +49,14 @@ class Board
 
   draw_result: ->
     if $(".mini_disk.AI").text().to_i() < $(".mini_disk.you").text().to_i()
-      $(".result").text("YOU WIN!!!")
+      $(".your_result").text("YOU WIN!!!")
     else if $(".mini_disk.you").text().to_i() < $(".mini_disk.AI").text().to_i()
-      $(".result").text("YOU LOSE...")
+      $(".your_result").text("YOU LOSE...")
     else
-      $(".result").text("DRAW")
+      $(".your_result").text("DRAW")
     $(".choose_disk").hide()
     $(".modal").fadeIn()
-    $(".result").addClass("show")
+    $(".result").fadeIn()
 
   movable_cells: ->
     movable_cells = []

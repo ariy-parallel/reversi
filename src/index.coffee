@@ -41,3 +41,6 @@ window.onload = ->
       window.board.change()
       if window.board.can_move_anywhere()
         AI_move()
+
+  $(".retry").on "click", ->
+    location.reload()
