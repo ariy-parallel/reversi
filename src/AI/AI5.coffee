@@ -59,6 +59,7 @@ class AI5 extends AI4
       next_board = board.clone()
       next_board.move(row, col)
       score = @search_not_final_best_of_you(next_board, depth + 1, max_score)
+      score += Setting.BOARD.SCORE[row][col]
       return score if min_score < score
       if max_score < score
         max_score = score
@@ -83,6 +84,7 @@ class AI5 extends AI4
       next_board = board.clone()
       next_board.move(row, col)
       score = @search_not_final_best_of_AI(next_board, depth + 1, min_score)
+      score -= Setting.BOARD.SCORE[row][col]
       return score if score < max_score
       if score < min_score
         min_score = score
