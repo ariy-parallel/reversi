@@ -4,6 +4,9 @@
 
 body {
     font-family: Georgia;
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
 
 .modal {
@@ -15,7 +18,7 @@ body {
 }
 
 .modal_inner {
-    height: 80vmin;
+    height: 100vmin;
     position: relative;
 }
 
@@ -74,7 +77,7 @@ body {
     flex-wrap: wrap;
     width: 80vmin;
     height: 80vmin;
-    margin: 0 auto;
+    margin: 7vmin auto;
 }
 
 .cell-container {
@@ -136,7 +139,7 @@ body {
 .info {
     display: flex;
     width: 100%;
-    margin-top: 5vmin;
+    margin-top: 3vmin;
 }
 
 .player {
