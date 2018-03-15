@@ -32,6 +32,11 @@ class Board
     disks
 
   draw: ->
+    @draw_board()
+    $(".mini_disk.you").text(@count_you())
+    $(".mini_disk.AI").text(@count_AI())
+
+  draw_board: ->
     for row, row_num in @cells
       for cell_val, col_num in row
         cell = $("##{row_num}#{col_num}")
@@ -44,8 +49,7 @@ class Board
           cell.removeClass(Setting.DISK.BLACK)
           cell.removeClass(Setting.DISK.WHITE)
           cell.addClass(cell_val)
-    $(".mini_disk.you").text(@count_you())
-    $(".mini_disk.AI").text(@count_AI())
+
 
   draw_result: ->
     if $(".mini_disk.AI").text().to_i() < $(".mini_disk.you").text().to_i()
@@ -85,10 +89,11 @@ class Board
       return true if 0 < @flip_disk_each_direction(row, col, y, x).length
     false
 
-  flip:(row, col) ->
-    @cells[row][col] = @this_player
-    for [y, x] in @flip_disk(row, col)
-      @cells[y][x] = @this_player
+  flip:(move_row, move_col) ->
+    @cells[move_row][move_col] = @this_player
+    for [y, x] in Board.ADJACENT
+      for [flip_row, flip_col] in @flip_disk_each_direction(move_row, move_col, y, x)
+        @cells[flip_row][flip_col] = @this_player
 
   flip_disk:(row, col) ->
     flip_disk = []

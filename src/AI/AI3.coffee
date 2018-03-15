@@ -6,7 +6,7 @@ class AI3 extends AI
 
     for i, [row, col] of @board.movable_cells()
       next_board = @board.clone()
-      next_board.flip(row, col)
+      next_board.move(row, col)
       score = @more_move_count(next_board)
 
       if max_score < score
@@ -16,8 +16,8 @@ class AI3 extends AI
     [result_row, result_col]
 
   more_move_count:(board) ->
-    i = board.movable_cells_length()
-    board.change()
     you = board.movable_cells_length()
+    board.change()
+    ai = board.movable_cells_length()
 
-    i - you
+    ai - you
