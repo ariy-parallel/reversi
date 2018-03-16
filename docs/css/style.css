@@ -7,6 +7,7 @@ body {
     height: 100%;
     width: 100%;
     position: absolute;
+    background: #fafdff;
 }
 
 .modal {
@@ -32,7 +33,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    background: #6de66de6;
+    background: #469646e6;
     padding: 7%;
     border: #000 2px solid;
     border-radius: 15px;
@@ -61,8 +62,8 @@ body {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     border-radius: 50%;
-    width: 7vmin;
-    height: 7vmin;
+    width: 9vmin;
+    height: 9vmin;
     box-shadow: 0 0 5px 1px;
 }
 
@@ -78,6 +79,7 @@ body {
     width: 80vmin;
     height: 80vmin;
     margin: 7vmin auto;
+    position: relative;
 }
 
 .cell-container {
@@ -134,6 +136,17 @@ body {
 
 .white::after {
     background: radial-gradient(#fff, #ccc);
+}
+
+.source {
+    position: absolute;
+    right: 0;
+    transform: translateY(-120%);
+    transition-duration: .1s;
+}
+
+.source:hover {
+    opacity: .6;
 }
 
 .info {
