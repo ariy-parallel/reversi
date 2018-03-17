@@ -7,6 +7,7 @@ window.onload = ->
     window.board.AI = Setting.DISK.WHITE
     $(".mini_disk.you").addClass("black")
     $(".mini_disk.AI").addClass("white")
+    $(".choose_disk").hide()
     $(".modal").fadeOut()
     window.board.draw()
 
@@ -15,6 +16,7 @@ window.onload = ->
     window.board.AI = Setting.DISK.BLACK
     $(".mini_disk.you").addClass("white")
     $(".mini_disk.AI").addClass("black")
+    $(".choose_disk").hide()
     $(".modal").fadeOut()
     AI_move()
     window.board.draw()
@@ -23,15 +25,24 @@ window.onload = ->
     [row, col] = $(this).attr("id").row_col()
     unless window.board.can_move(row, col)
       return
+    move(row, col).then ->
+      $(".loading").hide()
+      window.board.draw()
+      unless window.board.can_move_anywhere()
+        window.board.draw_result()
 
-    window.board.move(row, col)
-    if window.board.can_move_anywhere()
-      AI_move()
-    else
-      window.board.change()
-    window.board.draw()
-    unless window.board.can_move_anywhere()
-      window.board.draw_result()
+  move = (row, col) ->
+    new Promise (resolve) ->
+      $(".loading").show()
+      window.board.move(row, col)
+      window.board.draw()
+      setTimeout ->
+        if window.board.can_move_anywhere()
+          AI_move()
+        else
+          window.board.change()
+        resolve()
+      , 10
 
   AI_move = ->
     ai = new AI8(window.board)

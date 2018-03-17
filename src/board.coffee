@@ -58,7 +58,6 @@ class Board
       $(".your_result").text("YOU LOSE...")
     else
       $(".your_result").text("DRAW")
-    $(".choose_disk").hide()
     $(".modal").fadeIn()
     $(".result").fadeIn()
 

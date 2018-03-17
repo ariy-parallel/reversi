@@ -149,6 +149,18 @@ body {
     opacity: .6;
 }
 
+.loading {
+    display: none;
+    position: fixed;
+    top: 44vmin;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 6000001;
+    font-size: 1.8rem;
+    color: #222;
+    text-shadow:0px 0px 1px #fff;
+}
+
 .info {
     display: flex;
     width: 100%;
@@ -158,7 +170,8 @@ body {
 .player {
     position: relative;
     flex: 2;
-    font-size: 3rem;
+    font-size: 2rem;
+    color: #222;
 }
 
 .clear-fix:after {
@@ -180,8 +193,8 @@ body {
     top: 50%;
     transform: translateY(-50%);
     border-radius: 50%;
-    width: 7vmin;
-    height: 7vmin;
+    width: 6vmin;
+    height: 6vmin;
     box-shadow: 0 0 5px 1px;
 }
 
