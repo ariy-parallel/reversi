@@ -40,7 +40,6 @@ body {
 }
 
 .choose_box p {
-    background: #fff;
     font-size: 2rem;
     position: absolute;
     top: 10%;
@@ -56,6 +55,7 @@ body {
     appearance: none;
     padding: 10px 70px 10px 30px;
     cursor: pointer;
+    background: #fff;
 }
 
 .choose_level_icon {
