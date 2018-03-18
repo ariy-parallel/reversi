@@ -23,9 +23,9 @@ body {
     position: relative;
 }
 
-.choose_disk {
-    height: 40%;
-    width: 50%;
+.choose_box {
+    height: 30%;
+    width: 40%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -34,24 +34,50 @@ body {
     justify-content: center;
     align-items: flex-end;
     background: #469646e6;
-    padding: 7%;
+    padding: 2%;
     border: #000 2px solid;
     border-radius: 15px;
 }
 
-.choose_disk p {
+.choose_box p {
     color: #fff;
-    font-size: 3rem;
+    font-size: 2rem;
     position: absolute;
     top: 10%;
 }
 
+.choose_level {
+    position: relative;
+}
+
+.choose_level > select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 10px 70px 10px 30px;
+    cursor: pointer;
+}
+
+.choose_level_icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #000;
+    pointer-events: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
 .big_disk {
     position: relative;
+    bottom: 20%;
     width: 20%;
     cursor: pointer;
     transition-duration: 0.3s;
-    margin: 0 30px;
+    margin: 0px 5%;
 }
 
 .big_disk::after {
@@ -104,6 +130,10 @@ body {
 
 .cell:hover {
     background: #6de66d;
+}
+
+.movable {
+    cursor: pointer;
 }
 
 .movable::before {
