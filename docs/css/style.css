@@ -40,7 +40,7 @@ body {
 }
 
 .choose_box p {
-    color: #fff;
+    background: #fff;
     font-size: 2rem;
     position: absolute;
     top: 10%;
